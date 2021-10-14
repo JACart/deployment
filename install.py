@@ -24,8 +24,7 @@ public_keys = datafile["public_keys"]
 print("Running keys")
 
 for i in public_keys:
-    split = i.split()
-    subprocess.run(split)
+    subprocess.run(["curl", "-s", i, "|", "sudo", "apt-key", "add", "-"])
 
 
 subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
