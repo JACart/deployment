@@ -24,10 +24,12 @@ print("Running keys")
 
 subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
 
+apt = open("/etc/apt/sources.list.d/ros-latest.list", "a")
 for i in keys:
-    subprocess.run(["sudo", "sh", "-c", "'echo \"deb " + i +
-                   "\" > /etc/apt/sources.list.d/ros-latest.list'"])
+    apt.write(i)
     print("Adding" + i)
+
+apt.close()
 
 print("Updating local repo...")
 subprocess.run(["apt-get", "update"])
