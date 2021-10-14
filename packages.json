@@ -11,17 +11,16 @@
     "apt": [
         "python-pip",
         "cmake",
-        
         "python3-pip",
         "python-catkin-pkg",
+        "python-rosdistro",
         "python-rospkg-modules",
-        "python-rosdistro-modules",
         "python-rosdep",
         "ros-melodic-catkin",
         "python3-colcon*",
         "python3-setuptools",
         "python3-vcstool",
-        "ros*",
+        "ros-melodic-desktop-full",
         "git"
     ],
     "pip": [
