@@ -59,10 +59,11 @@ for i in pippackages:
 print("Installing Autoware v1.12.0")
 
 os.chdir(PATH)
-subprocess.run(["wget", "http://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz"])
+subprocess.run(
+    ["wget", "https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz"])
 os.mkdir('eigen')
 subprocess.run(["tar", "--strip-components=1",
-               "-xzvf", "3.3.7.tar.gz", "-C", "eigen"])
+               "-xzvf", "eigen-3.4.0.tar.gz", "-C", "eigen"])
 os.chdir('eigen')
 os.mkdir('build')
 os.chdir('build')
