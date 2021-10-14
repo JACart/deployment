@@ -22,6 +22,8 @@ github = datafile["github"]
 
 print("Running keys")
 
+subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
+
 for i in keys:
     subprocess.run(["sudo", "sh", "-c", "'echo \"deb " + i +
                    "\" > /etc/apt/sources.list.d/ros-latest.list'"])
