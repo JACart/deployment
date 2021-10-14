@@ -16,7 +16,6 @@
         "python3-setuptools",
         "python3-vcstool",
         "ros-melodic-desktop-full",
-        "git"
     ],
     "pip": [
         "wheel"

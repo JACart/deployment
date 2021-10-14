@@ -75,7 +75,10 @@ subprocess.run(["rm", "-rf", "3.3.7.tar.gz"])
 subprocess.run(["rm", "-rf", "eigen"])
 
 print("Building autoware")
-os.mkdir('autoware.ai/src')
+os.mkdir('autoware.ai')
+os.chdir('autoware.ai')
+os.mkdir('src')
+os.chdir(PATH)
 os.chdir('autoware.ai')
 subprocess.run(["wget", "-O", "autoware.ai.repos",
                "\"https://raw.githubusercontent.com/Autoware-AI/autoware.ai/1.12.0/autoware.ai.repos\""])
