@@ -41,7 +41,7 @@ subprocess.run(["apt-get", "update"])
 
 print("Installing apt packages")
 for i in aptpackages:
-    subprocess.run(["apt-get", "install", i, "-f"])
+    subprocess.run(["apt-get", "install", i, "-y"])
     print("Installing " + i)
 
 subprocess.run(["apt", "--fix-broken", "install", "-y"])
