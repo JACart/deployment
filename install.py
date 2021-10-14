@@ -19,8 +19,15 @@ aptpackages = datafile["apt"]
 pippackages = datafile["pip"]
 keys = datafile["keys"]
 github = datafile["github"]
+public_keys = datafile["public_keys"]
 
 print("Running keys")
+
+for i in public_keys:
+    split = i.split()
+    subprocess.run(["sudo", "apt-key", "adv", "--keyserver",
+                   split[0], "--recv-keys", split[1]])
+
 
 subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
 
