@@ -3,7 +3,7 @@
     "npm": "6.14.11",
     "node": "14.16.0",
     "public_keys": [
-        "curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -"
+        "https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc"
     ],
     "keys": [
         "deb http://packages.ros.org/ros/ubuntu bionic main"
