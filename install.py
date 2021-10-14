@@ -72,7 +72,7 @@ subprocess.run(["make"])
 subprocess.run(["make", "install"])
 os.chdir(PATH)
 subprocess.run(["rm", "-rf", "3.3.7.tar.gz"])
-os.rmdir('eigen')
+subprocess.run(["rm", "-rf", "eigen"])
 
 print("Building autoware")
 os.mkdir('autoware.ai/src')
