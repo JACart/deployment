@@ -4,6 +4,7 @@ import os
 import json
 
 PACKAGE_PATH = "packages.json"
+PATH = os.path.expanduser("~")
 
 if os.geteuid() != 0:
     exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
@@ -46,7 +47,7 @@ for i in pippackages:
 
 print("Installing Autoware v1.12.0")
 
-os.chdir('~')
+os.chdir(PATH)
 subprocess.run(["wget", "http://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz"])
 os.mkdir('eigen')
 subprocess.run(["tar", "--strip-components=1",
@@ -57,7 +58,7 @@ os.chdir('build')
 subprocess.run(["cmake", ".."])
 subprocess.run(["make"])
 subprocess.run(["make", "install"])
-os.chdir('~')
+os.chdir(PATH)
 subprocess.run(["rm", "-rf", "3.3.7.tar.gz"])
 os.rmdir('eigen')
 
@@ -74,9 +75,9 @@ subprocess.run("AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build",
                "--cmake-args", "-DCMAKE_BUILD_TYPE=Release")
 
 
-os.chdir('~')
+os.chdir(PATH)
 os.mkdir('catkin_ws')
-os.chdir('~')
+os.chdir(PATH)
 os.mkdir('src')
 os.chdir('src')
 
@@ -92,5 +93,5 @@ subprocess.run(
     ["echo", "\"source ~/autoware.ai/install/setup.bash\"", ">>", "~/.bashrc"])
 subprocess.run(["source", "~/.bashrc"])
 
-os.chdir('~')
+os.chdir(PATH)
 os.chmod('catkin_ws/src/ai-navigation/run.sh', 0o770)
