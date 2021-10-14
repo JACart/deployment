@@ -25,7 +25,7 @@ print("Running keys")
 
 for i in public_keys:
     subprocess.run(["apt-key", "adv", "--keyserver",
-                   "'hkp://keyserver.ubuntu.com:80'", "--recv-key", i])
+                   "keyserver.ubuntu.com", "--recv-key", i])
 
 subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
 
