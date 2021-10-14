@@ -26,7 +26,7 @@ subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
 
 apt = open("/etc/apt/sources.list.d/ros-latest.list", "a")
 for i in keys:
-    apt.write(i)
+    apt.write(i + "\n")
     print("Adding" + i)
 
 apt.close()

@@ -3,8 +3,8 @@
     "npm": "6.14.11",
     "node": "14.16.0",
     "keys": [
-        "http://packages.ros.org/ros/ubuntu bionic main",
-        "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+        "deb http://packages.ros.org/ros/ubuntu bionic main",
+        "deb  https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
     ],
     "apt": [
         "python-pip",
