@@ -56,6 +56,8 @@ for i in pippackages:
     subprocess.run(["pip3", "install", "-U", i])
     print("Installing " + i)
 
+
+
 print("Installing Autoware v1.12.0")
 
 os.chdir(PATH)
@@ -80,14 +82,15 @@ os.chdir('autoware.ai')
 os.mkdir('src')
 os.chdir(PATH)
 os.chdir('autoware.ai')
+
+subprocess.run(["sudo", "rosdep", "init"])
+
 subprocess.run(["wget", "-O", "autoware.ai.repos",
                "\"https://raw.githubusercontent.com/Autoware-AI/autoware.ai/1.12.0/autoware.ai.repos\""])
-subprocess.run(["vcs", "import", "src", "<", "autoware.ai.repos"])
+subprocess.run(["vcs", "import", "src < autoware.ai.repos"])
 subprocess.run(["rosdep", "update"])
-subprocess.run(["rosdep", "install", "-y", "--from-paths",
-               "src", "--ignore-src", "--rosdistro melodic", "--os=ubuntu:bionic"])
-subprocess.run("AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build",
-               "--cmake-args", "-DCMAKE_BUILD_TYPE=Release")
+subprocess.run(["rosdep", "install", "-y", "--from-paths", "src", "--ignore-src", "--rosdistro melodic", "--os=ubuntu:bionic"])
+subprocess.run("AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build", "--cmake-args", "-DCMAKE_BUILD_TYPE=Release")
 
 
 os.chdir(PATH)
