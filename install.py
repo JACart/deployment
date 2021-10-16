@@ -31,7 +31,6 @@ subprocess.run(["sudo", "touch", "/etc/apt/sources.list.d/ros-latest.list"])
 
 subprocess.run(["sudo", "python", "keys.py"])
 
-apt.close()
 
 print("Updating local repo...")
 subprocess.run(["sudo", "apt-get", "update"])
@@ -81,7 +80,7 @@ os.chdir('autoware.ai')
 subprocess.run(["sudo", "rosdep", "init"])
 
 subprocess.run(["wget", "-O", "autoware.ai.repos",
-               "\"https://raw.githubusercontent.com/Autoware-AI/autoware.ai/1.12.0/autoware.ai.repos\""])
+               "\"https://gitlab.com/autowarefoundation/autoware.ai/autoware/raw/1.12.0/autoware.ai.repos?inline=false\""])
 subprocess.run(["vcs", "import", "src < autoware.ai.repos"])
 subprocess.run(["rosdep", "update"])
 subprocess.run(["rosdep", "install", "-y", "--from-paths", "src", "--ignore-src", "--rosdistro melodic", "--os=ubuntu:bionic"])

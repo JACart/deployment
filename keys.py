@@ -3,6 +3,8 @@ import subprocess
 import os
 import json
 
+PACKAGE_PATH = "packages.json"
+
 f = open(PACKAGE_PATH, "r")
 datafile = json.load(f)
 
