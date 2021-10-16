@@ -63,9 +63,9 @@ subprocess.run(["tar", "--strip-components=1",
 os.chdir('eigen')
 os.mkdir('build')
 os.chdir('build')
-subprocess.run(["cmake", ".."])
-subprocess.run(["make"])
-subprocess.run(["make", "install"])
+subprocess.run(["sudo", "cmake", ".."])
+subprocess.run(["sudo", "make"])
+subprocess.run(["sudo", "make", "install"])
 os.chdir(PATH)
 subprocess.run(["rm", "-rf", "eigen-3.4.0.tar.gz"])
 subprocess.run(["rm", "-rf", "eigen"])
@@ -81,7 +81,7 @@ subprocess.run(["sudo", "rosdep", "init"])
 
 subprocess.run(["wget", "-O", "autoware.ai.repos",
                "https://gitlab.com/autowarefoundation/autoware.ai/autoware/raw/1.12.0/autoware.ai.repos?inline=false"])
-subprocess.run(["vcs", "import", "src", "<", "autoware.ai.repos"], shell=True)
+subprocess.run(["./vcs.sh"], shell=True)
 subprocess.run(["rosdep", "update"])
 subprocess.run(["rosdep", "install", "-y", "--from-paths", "src", "--ignore-src", "--rosdistro melodic", "--os=ubuntu:bionic"])
 subprocess.run(["AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build", "--cmake-args", "-DCMAKE_BUILD_TYPE=Release"], shell=True)
@@ -89,7 +89,7 @@ subprocess.run(["AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build", "--cmake-args
 
 os.chdir(PATH)
 os.mkdir('catkin_ws')
-os.chdir(PATH)
+os.chdir('catkin_ws')
 os.mkdir('src')
 os.chdir('src')
 
@@ -97,7 +97,7 @@ for i in github:
     subprocess.run(["git", "clone", "https://github.com/" + i])
 
 os.chdir('..')
-subprocess.run(["catkin-make"])
+subprocess.run(["catkin_make"])
 
 subprocess.run(
     ["echo", "\"source ~/catkin_ws/devel/setup.bash\"", ">>", "~/.bashrc"])
