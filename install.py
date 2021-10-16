@@ -14,7 +14,6 @@ subprocess.run(["sudo", "apt-get", "upgrade", "-y"])
 
 os.chmod('catkin_src.sh', 0o770)
 os.chmod('vcs.sh', 0o770)
-os.chmod('catkin_build.sh', 0o770)
 
 f = open(PACKAGE_PATH, "r")
 datafile = json.load(f)
@@ -100,14 +99,12 @@ os.chdir('src')
 for i in github:
     subprocess.run(["git", "clone", "https://github.com/" + i])
 
-os.chdir('..')
-
+os.chdir(PATH)
+os.chdir('catkin_ws')
 
 subprocess.run(["../deployment/catkin_src.sh"])
 
 subprocess.run(["catkin_make"])
-
-subprocess.run(["../deployment/catkin_build.sh"])
 
 os.chdir(PATH)
 os.chmod('catkin_ws/src/ai-navigation/run.sh', 0o770)

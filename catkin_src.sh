@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-source /opt/ros/indigo/setup.bash
+source /opt/ros/melodic/setup.bash
 
-echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
