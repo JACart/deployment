@@ -21,7 +21,8 @@
         "python-rosinstall",
         "python-rosinstall-generator",
         "python-wstool",
-        "build-essential"
+        "build-essential",
+        "ros-melodic-catkin"
     ],
     "pip": [
         "wheel"

@@ -67,8 +67,8 @@ subprocess.run(["sudo", "cmake", ".."])
 subprocess.run(["sudo", "make"])
 subprocess.run(["sudo", "make", "install"])
 os.chdir(PATH)
-subprocess.run(["rm", "-rf", "eigen-3.4.0.tar.gz"])
-subprocess.run(["rm", "-rf", "eigen"])
+subprocess.run(["sudo", "rm", "-rf", "eigen-3.4.0.tar.gz"])
+subprocess.run(["sudo", "rm", "-rf", "eigen"])
 
 print("Building autoware")
 os.mkdir('autoware.ai')
@@ -81,9 +81,9 @@ subprocess.run(["sudo", "rosdep", "init"])
 
 subprocess.run(["wget", "-O", "autoware.ai.repos",
                "https://gitlab.com/autowarefoundation/autoware.ai/autoware/raw/1.12.0/autoware.ai.repos?inline=false"])
-subprocess.run(["./vcs.sh"], shell=True)
+subprocess.run(["../deployment/vcs.sh"], shell=True)
 subprocess.run(["rosdep", "update"])
-subprocess.run(["rosdep", "install", "-y", "--from-paths", "src", "--ignore-src", "--rosdistro melodic", "--os=ubuntu:bionic"])
+subprocess.run(["rosdep", "install", "-y", "--from-paths", "src", "--ignore-src", "--rosdistro=melodic", "--os=ubuntu:bionic"])
 subprocess.run(["AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build", "--cmake-args", "-DCMAKE_BUILD_TYPE=Release"], shell=True)
 
 
