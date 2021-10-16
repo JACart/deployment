@@ -27,12 +27,9 @@ for i in public_keys:
     subprocess.run(["sudo", "apt-key", "adv", "--keyserver",
                    "keyserver.ubuntu.com", "--recv-key", i])
 
-subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
+subprocess.run(["sudo", "touch", "/etc/apt/sources.list.d/ros-latest.list"])
 
-apt = open("/etc/apt/sources.list.d/ros-latest.list", "a")
-for i in keys:
-    apt.write(i + "\n")
-    print("Adding" + i)
+subprocess.run(["sudo", "python", "keys.py"])
 
 apt.close()
 
