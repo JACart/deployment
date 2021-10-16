@@ -71,7 +71,7 @@ subprocess.run(["cmake", ".."])
 subprocess.run(["make"])
 subprocess.run(["make", "install"])
 os.chdir(PATH)
-subprocess.run(["rm", "-rf", "3.3.7.tar.gz"])
+subprocess.run(["rm", "-rf", "eigen-3.4.0.tar.gz"])
 subprocess.run(["rm", "-rf", "eigen"])
 
 print("Building autoware")

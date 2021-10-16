@@ -15,7 +15,13 @@
         "python-catkin-pkg",
         "python3-setuptools",
         "python3-vcstool",
+        "python-rospkg-modules",
         "ros-melodic-desktop-full",
+        "python-rosdep",
+        "python-rosinstall",
+        "python-rosinstall-generator",
+        "python-wstool",
+        "build-essential"
     ],
     "pip": [
         "wheel"
