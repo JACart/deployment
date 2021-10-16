@@ -6,11 +6,11 @@ import json
 PACKAGE_PATH = "packages.json"
 PATH = os.path.expanduser("~")
 
-if os.geteuid() != 0:
-    exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
+#if os.geteuid() != 0:
+#    exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
 
-subprocess.run(["apt-get", "update"])
-subprocess.run(["apt-get", "upgrade", "-y"])
+subprocess.run(["sudo", "apt-get", "update"])
+subprocess.run(["sudo", "apt-get", "upgrade", "-y"])
 
 f = open(PACKAGE_PATH, "r")
 datafile = json.load(f)
@@ -24,7 +24,7 @@ public_keys = datafile["public_keys"]
 print("Running keys")
 
 for i in public_keys:
-    subprocess.run(["apt-key", "adv", "--keyserver",
+    subprocess.run(["sudo", "apt-key", "adv", "--keyserver",
                    "keyserver.ubuntu.com", "--recv-key", i])
 
 subprocess.run(["touch", "/etc/apt/sources.list.d/ros-latest.list"])
@@ -37,14 +37,12 @@ for i in keys:
 apt.close()
 
 print("Updating local repo...")
-subprocess.run(["apt-get", "update"])
+subprocess.run(["sudo", "apt-get", "update"])
 
 print("Installing apt packages")
 for i in aptpackages:
-    subprocess.run(["apt-get", "install", i, "-y"])
+    subprocess.run(["sudo", "apt-get", "install", i, "-y"])
     print("Installing " + i)
-
-subprocess.run(["apt", "--fix-broken", "install", "-y"])
 
 print("Installing pip packages")
 for i in pippackages:
@@ -90,7 +88,7 @@ subprocess.run(["wget", "-O", "autoware.ai.repos",
 subprocess.run(["vcs", "import", "src < autoware.ai.repos"])
 subprocess.run(["rosdep", "update"])
 subprocess.run(["rosdep", "install", "-y", "--from-paths", "src", "--ignore-src", "--rosdistro melodic", "--os=ubuntu:bionic"])
-subprocess.run("AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build", "--cmake-args", "-DCMAKE_BUILD_TYPE=Release")
+subprocess.run(["AUTOWARE_COMPILE_WITH_CUDA=1", "colcon", "build", "--cmake-args", "-DCMAKE_BUILD_TYPE=Release"])
 
 
 os.chdir(PATH)
