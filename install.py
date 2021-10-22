@@ -2,9 +2,11 @@ import sys
 import subprocess
 import os
 import json
+import getpass
 
 PACKAGE_PATH = "packages.json"
 PATH = os.path.expanduser("~")
+USER = getpass.getuser()
 
 #if os.geteuid() != 0:
 #    exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
@@ -30,10 +32,17 @@ for i in public_keys:
     subprocess.run(["sudo", "apt-key", "adv", "--keyserver",
                    "keyserver.ubuntu.com", "--recv-key", i])
 
+
+
 subprocess.run(["sudo", "touch", "/etc/apt/sources.list.d/ros-latest.list"])
 
 subprocess.run(["sudo", "python", "keys.py"])
 
+subprocess.run(["wget", "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb"])
+
+subprocess.run(["sudo", "dpkg", "-i", "cuda-repo-ubuntu1804_10.0.130-1_amd64.deb"])
+
+subprocess.run(["sudo", "apt-key", "adv", "--fetch-keys", "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub"])
 
 print("Updating local repo...")
 subprocess.run(["sudo", "apt-get", "update"])
@@ -108,3 +117,10 @@ subprocess.run(["catkin_make"])
 
 os.chdir(PATH)
 os.chmod('catkin_ws/src/ai-navigation/run.sh', 0o770)
+
+os.mkdir('AVData')
+subprocess.run(["cp catkin_ws/src/ai-navigation/speedBoiMap.pcd", "AVData"])
+subprocess.run(["sudo cp catkin_ws/src/ai-navigation/99-usb-serial.rules" "/etc/udev/rules.d/"])
+subprocess.run(["sudo", "chown", USER + ":", "/dev/ttyUSB9"])
+subprocess.run(["sudo", "chmod", "777", "/dev/ttyUSB9"])
+
