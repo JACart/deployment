@@ -1,7 +1,7 @@
 repositories:
   ai-navigation:
     type: git
-    url: git@github.com:JACart/ai-navigation.git
+    url: https://github.com/JACart/ai-navigation
     version: two-zeds
   av_record:
     type: git
@@ -9,7 +9,7 @@ repositories:
     version: main
   cart-ui-offline:
     type: git
-    url: git@github.com:JACart/cart-ui-offline.git
+    url: https://github.com/JACart/cart-ui-offline
     version: alejandro
   jacart-zed:
     type: git
@@ -25,7 +25,7 @@ repositories:
     version: rafi
   offline-speech-recognition:
     type: git
-    url: git@github.com:JACart/offline-speech-recognition.git
+    url: https://github.com/JACart/offline-speech-recognition
     version: main
   phidgets_drivers:
     type: git
@@ -37,7 +37,7 @@ repositories:
     version: Eliminate_System_Interface
   summon-app-rn:
     type: git
-    url: git@github.com:JACart/summon-app-rn.git
+    url: https://github.com/JACart/summon-app-rn
     version: master
   zed-ros-examples:
     type: git
