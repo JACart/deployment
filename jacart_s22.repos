@@ -1,0 +1,49 @@
+repositories:
+  ai-navigation:
+    type: git
+    url: git@github.com:JACart/ai-navigation.git
+    version: two-zeds
+  av_record:
+    type: git
+    url: https://github.com/JACart/av_record
+    version: main
+  cart-ui-offline:
+    type: git
+    url: git@github.com:JACart/cart-ui-offline.git
+    version: alejandro
+  jacart-zed:
+    type: git
+    url: https://github.com/JACart/jacart-zed.git
+    version: main
+  jacart_electronics:
+    type: git
+    url: https://github.com/JACart/jacart_electronics.git
+    version: main
+  local-server:
+    type: git
+    url: https://github.com/JACart/local-server
+    version: rafi
+  offline-speech-recognition:
+    type: git
+    url: git@github.com:JACart/offline-speech-recognition.git
+    version: main
+  phidgets_drivers:
+    type: git
+    url: https://github.com/ros-drivers/phidgets_drivers.git
+    version: melodic
+  speech_interface:
+    type: git
+    url: https://github.com/JACart/speech_interface.git
+    version: Eliminate_System_Interface
+  summon-app-rn:
+    type: git
+    url: git@github.com:JACart/summon-app-rn.git
+    version: master
+  zed-ros-examples:
+    type: git
+    url: https://github.com/stereolabs/zed-ros-examples.git
+    version: master
+  zed-ros-wrapper:
+    type: git
+    url: https://github.com/stereolabs/zed-ros-wrapper.git
+    version: master
