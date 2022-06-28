@@ -1,0 +1,49 @@
+repositories:
+  ai-navigation:
+    type: git
+    url: https://github.com/JACart/ai-navigation
+    version: e86e9ab4d9eef1085fefdfe56d6ae8e2e1342c4c
+  av_record:
+    type: git
+    url: https://github.com/JACart/av_record
+    version: 6e19b7361b4b16cb412b93dc0615e8b4330b7c0d
+  cart-ui-offline:
+    type: git
+    url: https://github.com/JACart/cart-ui-offline
+    version: f870fb616f0cb15bfecb801f27c1980eb238dafa
+  jacart-zed:
+    type: git
+    url: https://github.com/JACart/jacart-zed.git
+    version: 492aae78d9ad3870377ed11d4289f014cc7b5d86
+  jacart_electronics:
+    type: git
+    url: https://github.com/JACart/jacart_electronics.git
+    version: 9fa1f2a21250ba352a67eb4222015cdb7494a210
+  local-server:
+    type: git
+    url: https://github.com/JACart/local-server
+    version: e36ad80f329552993d940e3aaa0c574b1939024b
+  offline-speech-recognition:
+    type: git
+    url: https://github.com/JACart/offline-speech-recognition
+    version: 5051be772b728aeb45e75d759968ff91315232cc
+  phidgets_drivers:
+    type: git
+    url: https://github.com/ros-drivers/phidgets_drivers.git
+    version: f2db326c41e9d5e0cc6450c73faae888d2f6a0c9
+  speech_interface:
+    type: git
+    url: https://github.com/JACart/speech_interface.git
+    version: c90d1282980f3c01f4f546055362c5877f6d588b
+  summon-app-rn:
+    type: git
+    url: https://github.com/JACart/summon-app-rn
+    version: 95d67dcf123a19ca404c97d601a539d8d625bb72
+  zed-ros-examples:
+    type: git
+    url: https://github.com/stereolabs/zed-ros-examples.git
+    version: c627f21af32a1d4cff3efe282018bf35dd41db0b
+  zed-ros-wrapper:
+    type: git
+    url: https://github.com/stereolabs/zed-ros-wrapper.git
+    version: f88c1dd2a3ae106f89e038adb49de3bee87fbdb1
